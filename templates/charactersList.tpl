@@ -3,7 +3,7 @@
 <ul>
     {foreach from=$characters item=$character}
         <li>
-            <a href="characters/{$character->nombre}">{$character->nombre}</a>
+            <a href="characters/{$character->id}">{$character->nombre}</a>
         </li>
     {/foreach}
 

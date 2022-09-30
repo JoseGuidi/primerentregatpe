@@ -26,8 +26,7 @@ switch ($params[0]) {
         if(empty($params[1]) && (!isset($params[1]))){
             $houseController->showAll();
         }else{ 
-            $characters = $characterController->getByHouse($params[1]);
-            $houseController->showOne($params[1],$characters); //muestra info de casa + personajes q comparten
+            $houseController->showOneHouse($params[1]);
         }
         break;
     case 'admin':

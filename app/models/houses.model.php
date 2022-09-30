@@ -5,7 +5,7 @@ class HouseModel{
     {
         $this->db = new PDO(
             'mysql:host=localhost;'
-                . 'dbname=trabajoespecial;charset=utf8',
+                . 'dbname=primerentrega;charset=utf8',
             'root',
             ''
         );
@@ -15,9 +15,10 @@ class HouseModel{
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
-    function getOneByName($nameHouse){
-        $query = $this->db->prepare("SELECT * FROM casas WHERE nombre_casa = ?");
-        $query->execute([$nameHouse]);
+    function getHouseByID($idHouse){
+        $query = $this->db->prepare("SELECT * FROM casas WHERE id = ?");
+        $query->execute([$idHouse]);
         return $query->fetch(PDO::FETCH_OBJ);
     }
+
 }

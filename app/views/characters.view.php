@@ -10,8 +10,9 @@ class CharacterView{
         $this->smarty->assign('characters',$characters);
         $this->smarty->display('charactersList.tpl');
     }
-    function displayOne($character){
+    function displayOne($character,$house){
         $this->smarty->assign('character',$character);
+        $this->smarty->assign('house',$house);
         $this->smarty->display('detailsCharacter.tpl');
     }
     function displayUnkownCharacter($nameCharacter){

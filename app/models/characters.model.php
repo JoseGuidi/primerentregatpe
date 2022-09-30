@@ -5,7 +5,7 @@ class CharacterModel{
     {
         $this->db = new PDO(
             'mysql:host=localhost;'
-                . 'dbname=trabajoespecial;charset=utf8',
+                . 'dbname=primerentrega;charset=utf8',
             'root',
             ''
         );
@@ -15,14 +15,15 @@ class CharacterModel{
         $query->execute();
         return ($query->fetchAll(PDO::FETCH_OBJ));
     }
-    function getOne($nameCharacter){
-        $query=$this->db->prepare("SELECT * FROM personajes WHERE nombre = ?");
-        $query->execute([$nameCharacter]);
+    function getCharacterByID($idCharacter){
+        $query=$this->db->prepare("SELECT * FROM personajes WHERE id = ?");
+        $query->execute([$idCharacter]);
         return $query->fetch(PDO::FETCH_OBJ);
     }
-    function getByHouse($house){
-        $query = $this->db->prepare ("SELECT * FROM personajes WHERE casa = ?");
-        $query->execute([$house]);
+    function getAllByHouse($id){
+        $query = $this->db->prepare ("SELECT * FROM personajes WHERE id_casa = ?");
+        $query->execute([$id]);
         return $query->fetchAll((PDO::FETCH_OBJ));
     }
+    
 }

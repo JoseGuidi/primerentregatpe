@@ -5,7 +5,7 @@ class LogInModel{
     {
         $this->db = new PDO(
             'mysql:host=localhost;'
-                . 'dbname=trabajoespecial;charset=utf8',
+                . 'dbname=primerentrega;charset=utf8',
             'root',
             ''
         );
