@@ -24,9 +24,16 @@ class HouseView
         $this->smarty->display(('detailsHouse.tpl'));
     }
 
-    function displayUnkownHouse($name)
+    function displayUnkownHouse($error)
     {
-        $this->smarty->assign('name', $name);
+        $this->smarty->assign('name', $error);
         $this->smarty->display('UnkownChOrHo.tpl');
+    }
+    function displayFormAddHouse(){
+        $this->smarty->display('formAddHouse.tpl');
+    }
+    function displayHousesWithDelete($houses){
+        $this->smarty->assign('houses', $houses);
+        $this->smarty->display('displayHouseWithDelete.tpl');
     }
 }

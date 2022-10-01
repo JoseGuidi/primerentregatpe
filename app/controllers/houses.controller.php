@@ -26,4 +26,23 @@ class HouseController{
             $this->view->displayUnkownHouse($idHouse);
         }
     }
+    function showFormAddHouse(){
+        $this->view->displayFormAddHouse();
+    }
+    function addHouse(){
+        $name=$_POST['nameHouse'];
+        $founder=$_POST['founder'];
+        $colors = $_POST['colors'];
+        $symbol=$_POST['symbol'];
+        $this->model->addHouse($name,$founder,$colors,$symbol);
+        header("Location: ". BASE_URL);
+    }
+    function showListDelete(){
+        $houses = $this->model->getAll();
+        $this->view->displayHousesWithDelete($houses);
+    }
+    function deleteCharacter($idCharacter){
+        $this->model->deleteCharacter($idCharacter);
+        header(("Location: ".BASE_URL));
+    }
 }

@@ -16,31 +16,39 @@ switch ($params[0]) {
         $loginController->showHome();
         break;
     case 'characters':
-        if(empty($params[1]) && (!isset($params[1]))){
+        if (empty($params[1]) && (!isset($params[1]))) {
             $characterController->showAll();
-        }else{
+        } else {
             $characterController->showOne($params[1]);
         }
         break;
     case 'houses':
-        if(empty($params[1]) && (!isset($params[1]))){
+        if (empty($params[1]) && (!isset($params[1]))) {
             $houseController->showAll();
-        }else{ 
+        } else {
             $houseController->showOneHouse($params[1]);
         }
         break;
     case 'admin':
         $loginController->registerAdmin();
         break;
-    case 'add':
-        echo 'add';
+    case 'showaddChar':
+        $characterController->showFormAddCharacter();
         break;
-    case 'edit':
-        echo 'edit';
+    case 'addChar':
+        $characterController->addCharacter();
         break;
-    case 'delete':
-        echo 'delete';
+    case 'showaddHouse':
+        $houseController->showFormAddHouse();
         break;
+    case 'addHouse':
+        $houseController->addHouse();
+        break;
+    case 'listDeleteHouse':
+        $houseController->showListDelete();
+        break;
+    case 'deleteChar' :
+        $characterController->deleteCharacter($params[1]);
     default:
         echo 'error 404';
         break;

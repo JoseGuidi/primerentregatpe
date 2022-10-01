@@ -31,12 +31,23 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Administrador
+                            Administrar Personajes
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="add">Agregar</a></li>
-                            <li><a class="dropdown-item" href="edit">Editar</a></li>
-                            <li><a class="dropdown-item" href="delete">Eliminar</a></li>
+                            <li><a class="dropdown-item" href="showaddChar">Agregar</a></li>
+                            <li><a class="dropdown-item" href="showeditChar">Editar</a></li>
+                            <li><a class="dropdown-item" href="listDeleteChar">Eliminar</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Administrar Casas
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="showaddHouse">Agregar</a></li>
+                            <li><a class="dropdown-item" href="showeditHouse">Editar</a></li>
+                            <li><a class="dropdown-item" href="showdeleteHouse">Eliminar</a></li>
                         </ul>
                     </li>
                 </ul>

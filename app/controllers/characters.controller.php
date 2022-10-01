@@ -22,10 +22,32 @@ class CharacterController{
             $house = $this->houseModel->getHouseByID($character->id_casa);
             $this->view->displayOne($character,$house);
         }else{
-            //$this->view->displayUnkownCharacter($nameCharacter);
+            $this->view->displayUnkownCharacter($idCharacter);
         }
     }
-    function getByHouse($house){
-        return $this->model->getByHouse($house);
+    function showFormAddCharacter(){
+        $houses = $this->houseModel->getAll();
+        $this->view->displayFormAddCharacter($houses);
+    }
+    function addCharacter(){
+        $idHouse= $_POST['idHouse'];
+         // comprobar si viene vacio
+        if(!empty($this->houseModel->getHouseByID($idHouse))){
+            $name = $_POST['name'];
+            $core=$_POST['core'];
+            $role = $_POST['role'];
+            $this->model->addCharacter($name,$idHouse,$core,$role);
+            header("Location: ". BASE_URL);
+        }else{
+            $this->view->displayUnkownCharacter("Casa con id $idHouse");
+        }
+    }
+    function showListDelete(){
+        $characters = $this->model->getAll();
+        $this->view->displayWithDelete($characters);
+    }
+    function deleteCharacter($idCharacter){
+        $this->model->deleteCharacter($idCharacter);
+        header(("Location: ".BASE_URL));
     }
 }

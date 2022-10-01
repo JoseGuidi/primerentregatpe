@@ -25,5 +25,12 @@ class CharacterModel{
         $query->execute([$id]);
         return $query->fetchAll((PDO::FETCH_OBJ));
     }
-    
+    function addCharacter($name,$idHouse,$core,$role){
+        $query = $this->db->prepare("INSERT INTO personajes (id_casa,nombre,rol,nucleo_varita) VALUES (?,?,?,?)");
+        $query->execute([$idHouse,$name,$role,$core]);
+    }
+    function deleteCharacter($id){
+        $query = $this->db->prepare("DELETE FROM personajes WHERE id = ?");
+        $query->execute([$id]);
+    }
 }
