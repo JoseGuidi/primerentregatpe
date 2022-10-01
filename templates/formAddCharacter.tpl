@@ -6,7 +6,7 @@
 
     <label>Casa: </label>
     <select name="idHouse">
-        {foreach from=$houses item=$house}
+        {foreach from=$allHouses item=$house}
             <option value="{$house->id}">{$house->nombre_casa}</option>
         {/foreach}
     </select>

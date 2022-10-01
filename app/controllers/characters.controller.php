@@ -25,26 +25,30 @@ class CharacterController{
             $this->view->displayUnkownCharacter($idCharacter);
         }
     }
-    function showFormAddCharacter(){
-        $houses = $this->houseModel->getAll();
-        $this->view->displayFormAddCharacter($houses);
-    }
     function addCharacter(){
-        $idHouse= $_POST['idHouse'];
-         // comprobar si viene vacio
-        if(!empty($this->houseModel->getHouseByID($idHouse))){
-            $name = $_POST['name'];
-            $core=$_POST['core'];
-            $role = $_POST['role'];
-            $this->model->addCharacter($name,$idHouse,$core,$role);
-            header("Location: ". BASE_URL);
-        }else{
-            $this->view->displayUnkownCharacter("Casa con id $idHouse");
+        $houses = $this->houseModel->getAll();
+        if(empty($_POST)){
+            $this->view->displayFormAdd($houses);
+        } else{
+        
+            if(empty($this->houseModel->getHouseByID($_POST['idHouse']))){
+                $this->view->displayFormAdd($houses); 
+            }else{
+                $idHouse= $_POST['idHouse'];
+                $name = $_POST['name'];
+                $core=$_POST['core'];
+                $role = $_POST['role'];
+                $this->model->insertCharacter($name,$idHouse,$role,$core);
+                header("Location:".BASE_URL);
+            }
         }
+
     }
-    function showListDelete(){
+
+    
+    function showListDelEdit(){
         $characters = $this->model->getAll();
-        $this->view->displayWithDelete($characters);
+        $this->view->displayWithButtons($characters);
     }
     function deleteCharacter($idCharacter){
         $this->model->deleteCharacter($idCharacter);

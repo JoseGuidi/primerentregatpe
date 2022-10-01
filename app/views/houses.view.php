@@ -32,8 +32,11 @@ class HouseView
     function displayFormAddHouse(){
         $this->smarty->display('formAddHouse.tpl');
     }
-    function displayHousesWithDelete($houses){
+    function displayHousesWithButtons($houses){
         $this->smarty->assign('houses', $houses);
-        $this->smarty->display('displayHouseWithDelete.tpl');
+        $this->smarty->display('displayHouseWithButtons.tpl');
+    }
+    function displayHouseNotEmpty(){
+        $this->smarty->display('displayHouseNotEmpty.tpl');
     }
 }

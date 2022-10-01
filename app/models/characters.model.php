@@ -25,7 +25,7 @@ class CharacterModel{
         $query->execute([$id]);
         return $query->fetchAll((PDO::FETCH_OBJ));
     }
-    function addCharacter($name,$idHouse,$core,$role){
+    function insertCharacter($name,$idHouse,$role,$core){
         $query = $this->db->prepare("INSERT INTO personajes (id_casa,nombre,rol,nucleo_varita) VALUES (?,?,?,?)");
         $query->execute([$idHouse,$name,$role,$core]);
     }

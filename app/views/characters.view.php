@@ -19,13 +19,13 @@ class CharacterView{
         $this->smarty->assign('name',$nameCharacter);
         $this->smarty->display('UnkownChOrHo.tpl');
     }
-    function displayFormAddCharacter($houses){
-        $this->smarty->assign('houses',$houses);
+    function displayFormAdd($allHouses){
+        $this->smarty->assign('allHouses',$allHouses);
         $this->smarty->display('formAddCharacter.tpl');
     }
-
-    function displayWithDelete($characters){
+    
+    function displayWithButtons($characters){
         $this->smarty->assign('characters',$characters);
-        $this->smarty->display('displayCharWithDelete.tpl');
+        $this->smarty->display('displayCharWithButtons.tpl');
     }
 }

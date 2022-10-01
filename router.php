@@ -29,26 +29,26 @@ switch ($params[0]) {
             $houseController->showOneHouse($params[1]);
         }
         break;
-    case 'admin':
-        $loginController->registerAdmin();
-        break;
-    case 'showaddChar':
-        $characterController->showFormAddCharacter();
-        break;
     case 'addChar':
         $characterController->addCharacter();
+        
         break;
-    case 'showaddHouse':
-        $houseController->showFormAddHouse();
-        break;
+   
     case 'addHouse':
         $houseController->addHouse();
         break;
-    case 'listDeleteHouse':
-        $houseController->showListDelete();
+    case 'editDeleteChar':
+        $characterController->showListDelEdit();
         break;
-    case 'deleteChar' :
+    case 'deleteChar':
         $characterController->deleteCharacter($params[1]);
+        break;
+    case 'editDeletHouse':
+        $houseController->showListDelEdit();
+        break;
+    case 'deleteHouse':
+        $houseController->deleteHouse($params[1]);
+        break;
     default:
         echo 'error 404';
         break;

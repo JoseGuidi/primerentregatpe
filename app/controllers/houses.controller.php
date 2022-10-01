@@ -37,12 +37,17 @@ class HouseController{
         $this->model->addHouse($name,$founder,$colors,$symbol);
         header("Location: ". BASE_URL);
     }
-    function showListDelete(){
+    function showListDelEdit(){
         $houses = $this->model->getAll();
-        $this->view->displayHousesWithDelete($houses);
+        $this->view->displayHousesWithButtons($houses);
     }
-    function deleteCharacter($idCharacter){
-        $this->model->deleteCharacter($idCharacter);
-        header(("Location: ".BASE_URL));
+    function deleteHouse($idHouse){
+        $cFromThisHouse = $this->charactersModel->getAllByHouse($idHouse);
+        if(empty($cFromThisHouse)){
+            $this->model->deleteHouse($idHouse);
+            header(("Location: ".BASE_URL));
+        }else{
+            $this->view->displayHouseNotEmpty();
+        }
     }
 }
