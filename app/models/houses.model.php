@@ -21,7 +21,7 @@ class HouseModel{
         return $query->fetch(PDO::FETCH_OBJ);
     }
     
-    function addHouse($name,$founder,$colors,$symbol){
+    function insertHouse($name,$founder,$colors,$symbol){
         $query = $this->db->prepare("INSERT INTO casas (nombre_casa,colores,simbolo,fundador) VALUES (?,?,?,?)");
         $query->execute([$name,$colors,$symbol,$founder]);
     }

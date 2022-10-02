@@ -18,24 +18,31 @@ class HouseController{
     }
     function showOneHouse($idHouse){
         $house = $this->model->getHouseByID($idHouse); // recibo house por id
-
         if(!empty($house)){
-            $characters = $this->charactersModel->getAllByHouse($house->id);
+            $characters = $this->charactersModel->getAllByHouse($idHouse);
             $this->view->displayOne($house,$characters);
         }else{
             $this->view->displayUnkownHouse($idHouse);
         }
     }
-    function showFormAddHouse(){
-        $this->view->displayFormAddHouse();
+    function postIsVoid(){
+        return ((!isset($_POST['nameHouse']))&& (empty($_POST['nameHouse'])) ||
+                (!isset($_POST['founder']))&& (empty($_POST['founder'])) || 
+                (!isset($_POST['colors']))&& (empty($_POST['colors'])) ||
+                (!isset($_POST['symbol']))&& (empty($_POST['symbol'])));
     }
     function addHouse(){
-        $name=$_POST['nameHouse'];
-        $founder=$_POST['founder'];
-        $colors = $_POST['colors'];
-        $symbol=$_POST['symbol'];
-        $this->model->addHouse($name,$founder,$colors,$symbol);
-        header("Location: ". BASE_URL);
+        if($this->postIsVoid()){
+            $this->view->displayFormAddHouse();
+        }else {
+            $name=$_POST['nameHouse'];
+            $founder=$_POST['founder'];
+            $colors = $_POST['colors'];
+            $symbol=$_POST['symbol'];
+            $this->model->insertHouse($name,$founder,$colors,$symbol);
+            header("Location: ". BASE_URL);
+
+        }
     }
     function showListDelEdit(){
         $houses = $this->model->getAll();
