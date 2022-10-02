@@ -44,17 +44,17 @@ class HouseController{
 
         }
     }
-    function showListDelEdit(){
-        $houses = $this->model->getAll();
-        $this->view->displayHousesWithButtons($houses);
-    }
     function deleteHouse($idHouse){
-        $cFromThisHouse = $this->charactersModel->getAllByHouse($idHouse);
-        if(empty($cFromThisHouse)){
-            $this->model->deleteHouse($idHouse);
-            header(("Location: ".BASE_URL));
-        }else{
-            $this->view->displayHouseNotEmpty();
-        }
+        
+        if($idHouse == NULL){
+            $houses = $this->model->getAll();
+            $this->view->displayDeleteButtons($houses);
+        }else if (!empty($this->charactersModel->getAllByHouse($idHouse))){
+                $this->view->displayHouseNotEmpty();
+            }else{
+                $this->model->deleteHouse($idHouse);
+                header("Location: " . BASE_URL);
+            }
+        
     }
 }

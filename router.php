@@ -29,22 +29,17 @@ switch ($params[0]) {
             $houseController->showOneHouse($params[1]);
         }
         break;
+
     case 'addChar':
-        $characterController->addCharacter();
-        
+        $characterController->addCharacter();      
         break;
-   
     case 'addHouse':
         $houseController->addHouse();
         break;
-    case 'editDeleteChar':
-        $characterController->showListDelEdit();
-        break;
+
+
     case 'deleteChar':
         $characterController->deleteCharacter($params[1]);
-        break;
-    case 'editDeletHouse':
-        $houseController->showListDelEdit();
         break;
     case 'deleteHouse':
         $houseController->deleteHouse($params[1]);

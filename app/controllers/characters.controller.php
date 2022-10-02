@@ -46,12 +46,14 @@ class CharacterController{
     }
 
     
-    function showListDelEdit(){
-        $characters = $this->model->getAll();
-        $this->view->displayWithButtons($characters);
-    }
+
     function deleteCharacter($idCharacter){
-        $this->model->deleteCharacter($idCharacter);
-        header(("Location: ".BASE_URL));
+        $characters = $this->model->getAll();
+        if($idCharacter == NULL){
+            $this->view->displayDeleteButtons($characters);
+        }else {
+            $this->model->deleteCharacter($idCharacter);
+            header("Location: ". BASE_URL);
+        }
     }
 }

@@ -34,8 +34,9 @@
                             Administrar Personajes
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="addChar">Agregar</a></li>
-                            <li><a class="dropdown-item" href="editDeleteChar">Eliminar/Editar</a></li>
+                            <li><a class="dropdown-item" href="addChar">Agregar</a></li>             
+                            <li><a class="dropdown-item" href="editChar">Editar</a></li>
+                            <li><a class="dropdown-item" href="deleteChar">Borrar</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">

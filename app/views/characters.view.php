@@ -24,8 +24,16 @@ class CharacterView{
         $this->smarty->display('formAddCharacter.tpl');
     }
     
-    function displayWithButtons($characters){
+    function displayButtons($button,$action,$characters){
+        $this->smarty->assign('button',$button);
+        $this->smarty->assign('action',$action);
         $this->smarty->assign('characters',$characters);
         $this->smarty->display('displayCharWithButtons.tpl');
     }
+    function displayDeleteButtons($characters){
+        
+        $this->smarty->assign('characters',$characters);
+        $this->smarty->display('charactersDeleteButtons.tpl');
+    }
+
 }
