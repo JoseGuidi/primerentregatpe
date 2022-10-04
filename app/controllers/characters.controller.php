@@ -25,14 +25,21 @@ class CharacterController{
             $this->view->displayUnkownCharacter($idCharacter);
         }
     }
+    
+    function postIsVoid(){
+        return ((!isset($_POST['name']))&& (empty($_POST['name'])) ||
+                (!isset($_POST['idHouse']))&& (empty($_POST['idHouse'])) || 
+                (!isset($_POST['role']))&& (empty($_POST['role'])) ||
+                (!isset($_POST['core']))&& (empty($_POST['core'])));
+    }
     function addCharacter(){
         $houses = $this->houseModel->getAll();
-        if(empty($_POST)){
-            $this->view->displayFormAdd($houses);
+        if($this->postIsVoid()){
+            $this->view->displayForm($houses,'addChar');
         } else{
         
             if(empty($this->houseModel->getHouseByID($_POST['idHouse']))){
-                $this->view->displayFormAdd($houses); 
+                $this->view->displayForm($houses,'addChar'); 
             }else{
                 $idHouse= $_POST['idHouse'];
                 $name = $_POST['name'];
@@ -45,15 +52,37 @@ class CharacterController{
 
     }
 
-    
-
-    function deleteCharacter($idCharacter){
+    function showDeleteButtons(){
         $characters = $this->model->getAll();
-        if($idCharacter == NULL){
+        $this->view->displayDeleteButtons($characters);
+    }
+
+    function deleteCharacter($idCharacter = NULL){
+      /*  $characters = $this->model->getAll();
+        if(!isset($idCharacter) && empty($idCharacter)){
             $this->view->displayDeleteButtons($characters);
-        }else {
+        }else {*/
             $this->model->deleteCharacter($idCharacter);
             header("Location: ". BASE_URL);
+       // }
+    }
+
+    function showEditButtons(){
+        $characters = $this->model->getAll();
+        $this->view->displayEditButtons($characters);
+    }
+    function editCharacter($idCharacter){
+        if($this->postIsVoid()){
+            $houses = $this->houseModel->getAll();
+            $this->view->displayFormEdit($houses,$idCharacter);
+        }else {
+            $idHouse= $_POST['idHouse'];
+            $name = $_POST['name'];
+            $core=$_POST['core'];
+            $role = $_POST['role'];
+            $this->model->updateCharacter($name,$idHouse,$role,$core,$idCharacter);
+            header("Location:".BASE_URL);
         }
+        
     }
 }

@@ -29,5 +29,9 @@ class HouseModel{
         $query = $this->db->prepare("DELETE FROM casas WHERE id = ?");
         $query->execute([$idHouse]);
     }
-
+    function updateHouse($name,$founder,$colors,$symbol,$idHouse){
+        $query = $this->db->prepare("UPDATE casas SET nombre_casa=?,
+                                    colores=?,simbolo='?',fundador=? WHERE id = ? ");
+        $query->execute([$name,$colors,$symbol,$founder,$idHouse]);
+    }
 }

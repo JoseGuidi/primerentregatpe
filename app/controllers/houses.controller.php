@@ -44,17 +44,35 @@ class HouseController{
 
         }
     }
+    function showDeleteButtons(){
+        $houses = $this->model->getAll();
+        $this->view->displayDeleteButtons($houses);
+    }
     function deleteHouse($idHouse){
-        
-        if($idHouse == NULL){
-            $houses = $this->model->getAll();
-            $this->view->displayDeleteButtons($houses);
+        if (!empty($this->charactersModel->getAllByHouse($idHouse))){
+            $this->view->displayHouseNotEmpty();
+        }else{
+            $this->model->deleteHouse($idHouse);
+            header("Location: " . BASE_URL);
+        }
+    }
+
+    function showEditButtons(){
+        $houses = $this->model->getAll();
+        $this->view->displayEditButtons($houses);
+    }
+    function editHouse($idHouse){
+        if ($this->postIsVoid()){
+            $this->view->displayFormEdit($idHouse);
         }else if (!empty($this->charactersModel->getAllByHouse($idHouse))){
-                $this->view->displayHouseNotEmpty();
-            }else{
-                $this->model->deleteHouse($idHouse);
-                header("Location: " . BASE_URL);
-            }
-        
+            $this->view->displayHouseNotEmpty();
+        }else {
+            $name=$_POST['nameHouse'];
+            $founder=$_POST['founder'];
+            $colors = $_POST['colors'];
+            $symbol=$_POST['symbol'];
+            $this->model->updateHouse($name,$founder,$colors,$symbol,$idHouse);
+            header("Location: ". BASE_URL);
+        }
     }
 }

@@ -39,6 +39,14 @@ class HouseView
     function displayHouseNotEmpty(){
         $this->smarty->display('displayHouseNotEmpty.tpl');
     }
-  
+    function displayFormEdit($idHouse) {
+        $this->smarty->assign("id",$idHouse);
+        $this->smarty->display('formEditHouse.tpl');
+    }
+    function displayEditButtons($houses){
+        $this->smarty->assign('houses', $houses);
+        $this->smarty->display('houseEditButtons.tpl');
+
+    } 
 }
 

@@ -1,5 +1,5 @@
 {include file="head.tpl" }
-<form action="{$action}" method="POST">
+<form action="editChar/{$id}" method="POST">
 
     <label>Nombre: </label>
     <input type="text" name="name">
@@ -16,6 +16,6 @@
 
     <label>Nucleo varita: </label>
     <input type="text" name="core">
-    <button type="submit">Agregar</button>
+    <button type="submit">Agregar cambios</button>
 </form>
 {include file="foot.tpl" }

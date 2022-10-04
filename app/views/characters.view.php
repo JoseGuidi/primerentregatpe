@@ -19,8 +19,9 @@ class CharacterView{
         $this->smarty->assign('name',$nameCharacter);
         $this->smarty->display('UnkownChOrHo.tpl');
     }
-    function displayFormAdd($allHouses){
-        $this->smarty->assign('allHouses',$allHouses);
+    function displayForm($houses,$action){
+        $this->smarty->assign('action',$action);
+        $this->smarty->assign('houses',$houses);
         $this->smarty->display('formAddCharacter.tpl');
     }
     
@@ -30,10 +31,17 @@ class CharacterView{
         $this->smarty->assign('characters',$characters);
         $this->smarty->display('displayCharWithButtons.tpl');
     }
-    function displayDeleteButtons($characters){
-        
+    function displayDeleteButtons($characters){                 // probar combinando con edit pasando porparametro la accion
         $this->smarty->assign('characters',$characters);
         $this->smarty->display('charactersDeleteButtons.tpl');
     }
-
+    function displayEditButtons($characters){
+        $this->smarty->assign('characters',$characters);
+        $this->smarty->display('charactersEditButtons.tpl');
+    }
+    function displayFormEdit($houses,$idChar){
+        $this->smarty->assign('id',$idChar);
+        $this->smarty->assign('houses',$houses);
+        $this->smarty->display('formEditCharacter.tpl');
+    }
 }

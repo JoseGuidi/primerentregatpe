@@ -33,4 +33,9 @@ class CharacterModel{
         $query = $this->db->prepare("DELETE FROM personajes WHERE id = ?");
         $query->execute([$id]);
     }
+    function updateCharacter($name,$idHouse,$role,$core,$idCharacter){
+        $query=$this->db->prepare("UPDATE personajes SET id_casa=?,nombre=?,rol=?,nucleo_varita=? WHERE id = ?");
+        $query->execute([$idHouse,$name,$role,$core,$idCharacter]);
+    
+    }
 }

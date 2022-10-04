@@ -31,18 +31,33 @@ switch ($params[0]) {
         break;
 
     case 'addChar':
-        $characterController->addCharacter();      
+        $characterController->addCharacter();
         break;
     case 'addHouse':
         $houseController->addHouse();
         break;
 
-
     case 'deleteChar':
-        $characterController->deleteCharacter($params[1]);
+        if (empty($params[1]) && (!isset($params[1]))) {
+            $characterController->showDeleteButtons();
+        }else $characterController->deleteCharacter($params[1]);
         break;
     case 'deleteHouse':
-        $houseController->deleteHouse($params[1]);
+        if (empty($params[1]) && (!isset($params[1]))) {
+            $houseController->showDeleteButtons();
+        }else $houseController->deleteHouse($params[1]);
+        break;
+
+    case 'editChar':        
+        if (empty($params[1]) && (!isset($params[1]))) {
+            $characterController->showEditButtons();
+        }else $characterController->editCharacter($params[1]);
+        break;       
+
+   case 'editHouse':
+        if (empty($params[1]) && (!isset($params[1]))) {
+            $houseController->showEditButtons();
+        } else $houseController->editHouse($params[1]);
         break;
     default:
         echo 'error 404';

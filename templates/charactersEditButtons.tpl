@@ -4,7 +4,7 @@
     {foreach from=$characters item=$character}
         <li>
             <label>{$character->nombre}</label> 
-            <a href="{$action}Char/{$character->id}" class="btn btn-danger m-2">{$button}</a> 
+            <a href="editChar/{$character->id}" class="btn btn-secondary m-2">Editar</a> 
         </li>
     {/foreach}
 
