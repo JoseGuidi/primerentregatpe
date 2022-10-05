@@ -1,6 +1,7 @@
 {include file="head.tpl"}
+<div class="lista">
 <h1> Todos los Personajes</h1>
-<ul>
+<ul class="list-group">
     {foreach from=$characters item=$character}
         <li>
             <label>{$character->nombre}</label> 
@@ -9,4 +10,5 @@
     {/foreach}
 
 </ul>
+</div>
 {include file="foot.tpl"}

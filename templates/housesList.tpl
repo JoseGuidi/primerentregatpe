@@ -1,11 +1,14 @@
 {include file="head.tpl"}
+<div class="lista">
 <h1>Todos las casas: </h1>
-<ul>
+<ul class="list-group">
     {foreach from=$houses item=$house}
-        <li>
-            <a href="houses/{$house->id}">{$house->nombre_casa} (ID: {$house->id})</a>
+        <li class="list-group-item list-group-item-action">
+            <a class="anchorLista" href="houses/{$house->id}">{$house->nombre_casa}</a>
         </li>
     {/foreach}
 
 </ul>
+</div>
+<img src="images/casas.jpg" alt="Casas HP">
 {include file="foot.tpl"}

@@ -63,7 +63,8 @@ class HouseController{
     }
     function editHouse($idHouse){
         if ($this->postIsVoid()){
-            $this->view->displayFormEdit($idHouse);
+            $house = $this->model->getHouseByID($idHouse);
+            $this->view->displayFormEdit($house);
         }else if (!empty($this->charactersModel->getAllByHouse($idHouse))){
             $this->view->displayHouseNotEmpty();
         }else {

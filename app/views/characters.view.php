@@ -39,8 +39,9 @@ class CharacterView{
         $this->smarty->assign('characters',$characters);
         $this->smarty->display('charactersEditButtons.tpl');
     }
-    function displayFormEdit($houses,$idChar){
-        $this->smarty->assign('id',$idChar);
+    function displayFormEdit($houses,$char,$houseOfChar){
+        $this->smarty->assign('houseOfChar',$houseOfChar);
+        $this->smarty->assign('char',$char);
         $this->smarty->assign('houses',$houses);
         $this->smarty->display('formEditCharacter.tpl');
     }

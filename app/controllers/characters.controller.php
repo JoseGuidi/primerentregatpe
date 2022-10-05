@@ -58,13 +58,8 @@ class CharacterController{
     }
 
     function deleteCharacter($idCharacter = NULL){
-      /*  $characters = $this->model->getAll();
-        if(!isset($idCharacter) && empty($idCharacter)){
-            $this->view->displayDeleteButtons($characters);
-        }else {*/
             $this->model->deleteCharacter($idCharacter);
             header("Location: ". BASE_URL);
-       // }
     }
 
     function showEditButtons(){
@@ -74,7 +69,9 @@ class CharacterController{
     function editCharacter($idCharacter){
         if($this->postIsVoid()){
             $houses = $this->houseModel->getAll();
-            $this->view->displayFormEdit($houses,$idCharacter);
+            $character = $this->model->getCharacterByID($idCharacter);
+            $houseOfCharacter = $this->houseModel->getHouseByID($character->id_casa);
+            $this->view->displayFormEdit($houses,$character,$houseOfCharacter);
         }else {
             $idHouse= $_POST['idHouse'];
             $name = $_POST['name'];

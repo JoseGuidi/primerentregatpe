@@ -1,0 +1,54 @@
+div.login{
+    text-align: center;
+    margin: 0 40%;
+    border: 2px solid rgb(61, 61, 117);
+    border-top:none ;
+    padding: 10px;
+}
+div.login input{
+    margin-bottom: 10px;
+}
+.btnLogin{
+    color: rgb(61, 61, 117);
+    border-color: rgb(4, 4, 53);;
+}
+.btnLogin:hover{
+    background-color: rgb(4, 4, 53);
+    color:rgb(255, 255, 255);
+}
+img[src="images/login.jpg"]{
+    border-bottom: 2px solid rgb(61, 61, 117);
+    display: block;
+    margin: auto;
+}
+.anchorLista{
+    color: black;
+    text-decoration: none;
+} 
+.anchorLista:hover{
+    color: black;
+    text-decoration:solid underline 1px black;
+    font-size: 110%;
+}
+div.lista{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+div.lista h1{
+    width: 100%;
+    text-align: center;
+}
+div.lista img{
+    width: 25%;
+    
+}
+div.lista ul{
+    width: 40%;
+}
+img[src="images/casas.jpg"]{
+    display: block;
+    margin: auto;
+    margin-top: 60px;
+    width: 30%;
+}

@@ -1,12 +1,14 @@
 {include file="head.tpl"}
+<div class="lista">
 <h1> Todos las Casas</h1>
-<ul>
+<ul class="list-group">
     {foreach from=$houses item=$house}
-        <li>
+        <li class="list-group-item list-group-item-action">
             <label>{$house->nombre_casa}</label>
             <a href="editHouse/{$house->id}" class="btn btn-secondary m-2">Editar</a>
         </li>
     {/foreach}
 
 </ul>
+</div>
 {include file="foot.tpl"}
