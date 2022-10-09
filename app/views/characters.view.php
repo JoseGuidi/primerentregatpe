@@ -40,6 +40,7 @@ class CharacterView{
         $this->smarty->display('charactersEditButtons.tpl');
     }
     function displayFormEdit($houses,$char,$houseOfChar){
+        
         $this->smarty->assign('houseOfChar',$houseOfChar);
         $this->smarty->assign('char',$char);
         $this->smarty->assign('houses',$houses);

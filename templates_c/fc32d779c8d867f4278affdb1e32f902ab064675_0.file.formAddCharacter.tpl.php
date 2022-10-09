@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-05 00:43:46
+/* Smarty version 4.2.1, created on 2022-10-09 03:59:28
   from 'C:\xampp\newInstall\htdocs\practicos\PrimerEntregaTPE\templates\formAddCharacter.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_633cb7225aca25_59111596',
+  'unifunc' => 'content_63422b008a3982_15329880',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fc32d779c8d867f4278affdb1e32f902ab064675' => 
     array (
       0 => 'C:\\xampp\\newInstall\\htdocs\\practicos\\PrimerEntregaTPE\\templates\\formAddCharacter.tpl',
-      1 => 1664923395,
+      1 => 1665280764,
       2 => 'file',
     ),
   ),
@@ -22,10 +22,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:foot.tpl' => 1,
   ),
 ),false)) {
-function content_633cb7225aca25_59111596 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63422b008a3982_15329880 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-<form action="<?php echo $_smarty_tpl->tpl_vars['action']->value;?>
+<form class="form-group" action="<?php echo $_smarty_tpl->tpl_vars['action']->value;?>
 " method="POST">
 
     <label>Nombre: </label>

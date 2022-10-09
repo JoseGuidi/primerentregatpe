@@ -1,6 +1,6 @@
 {include file="head.tpl"}
 <div class="lista">
-<h1>Todos las casas: </h1>
+<h1>Todas las casas: </h1>
 <ul class="list-group">
     {foreach from=$houses item=$house}
         <li class="list-group-item list-group-item-action">
