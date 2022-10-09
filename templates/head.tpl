@@ -35,7 +35,7 @@
                             Administrar Personajes
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="addChar">Agregar</a></li>             
+                            <li><a class="dropdown-item" href="addChar">Agregar</a></li>
                             <li><a class="dropdown-item" href="editChar">Editar</a></li>
                             <li><a class="dropdown-item" href="deleteChar">Borrar</a></li>
                         </ul>
@@ -51,6 +51,8 @@
                             <li><a class="dropdown-item" href="deleteHouse">Borrar</a></li>
                         </ul>
                     </li>
+            
+
                 </ul>
             </div>
         </div>
@@ -58,4 +60,3 @@
 </header>
 
 <body>
-    

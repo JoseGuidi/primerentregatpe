@@ -1,6 +1,6 @@
 <?php
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
-require_once 'app/controllers/login.controller.php';
+require_once 'app/controllers/auth.controller.php';
 require_once 'app/controllers/characters.controller.php';
 require_once 'app/controllers/houses.controller.php';
 if (!empty($_GET['action'])) {
@@ -9,11 +9,17 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 $characterController = new CharacterController();
-$loginController = new LogInController();
+$authController = new authController();
 $houseController = new HouseController();
 switch ($params[0]) {
     case 'home':
-        $loginController->showHome();
+        $authController->showLogin();
+        break;
+    case 'validate':
+        $authController->validatePassword();
+        break;
+    case 'logout':
+        $authController->logoutUser();
         break;
     case 'characters':
         if (empty($params[1]) && (!isset($params[1]))) {

@@ -2,12 +2,13 @@
 require_once 'app/models/houses.model.php';
 require_once 'app/models/characters.model.php';
 require_once 'app/views/houses.view.php';
+
 class HouseController{
     private $model;
     private $view;
     private $charactersModel;
-    function __construct()
-    {
+
+    function __construct(){
         $this->model = new HouseModel();
         $this->view = new HouseView();
         $this->charactersModel = new CharacterModel();
@@ -32,6 +33,7 @@ class HouseController{
                 (!isset($_POST['symbol']))&& (empty($_POST['symbol'])));
     }
     function addHouse(){
+
         if($this->postIsVoid()){
             $this->view->displayFormAddHouse();
         }else {

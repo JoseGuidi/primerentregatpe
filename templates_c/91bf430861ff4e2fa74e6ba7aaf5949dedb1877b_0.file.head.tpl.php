@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-05 01:15:16
+/* Smarty version 4.2.1, created on 2022-10-09 03:34:22
   from 'C:\xampp\newInstall\htdocs\practicos\PrimerEntregaTPE\templates\head.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_633cbe84c5de55_43525334',
+  'unifunc' => 'content_6342251e04f6c6_67990354',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '91bf430861ff4e2fa74e6ba7aaf5949dedb1877b' => 
     array (
       0 => 'C:\\xampp\\newInstall\\htdocs\\practicos\\PrimerEntregaTPE\\templates\\head.tpl',
-      1 => 1664925315,
+      1 => 1665279148,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_633cbe84c5de55_43525334 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6342251e04f6c6_67990354 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -59,7 +59,7 @@ function content_633cbe84c5de55_43525334 (Smarty_Internal_Template $_smarty_tpl)
                             Administrar Personajes
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="addChar">Agregar</a></li>             
+                            <li><a class="dropdown-item" href="addChar">Agregar</a></li>
                             <li><a class="dropdown-item" href="editChar">Editar</a></li>
                             <li><a class="dropdown-item" href="deleteChar">Borrar</a></li>
                         </ul>
@@ -75,12 +75,13 @@ function content_633cbe84c5de55_43525334 (Smarty_Internal_Template $_smarty_tpl)
                             <li><a class="dropdown-item" href="deleteHouse">Borrar</a></li>
                         </ul>
                     </li>
+            
+
                 </ul>
             </div>
         </div>
     </nav>
 </header>
 
-<body>
-    <?php }
+<body><?php }
 }
