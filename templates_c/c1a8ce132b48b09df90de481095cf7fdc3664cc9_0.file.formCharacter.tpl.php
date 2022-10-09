@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-09 05:28:51
+/* Smarty version 4.2.1, created on 2022-10-09 17:04:02
   from 'C:\xampp\newInstall\htdocs\practicos\PrimerEntregaTPE\templates\formCharacter.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63423ff3dbac86_87125996',
+  'unifunc' => 'content_6342e2e2e98454_79487732',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c1a8ce132b48b09df90de481095cf7fdc3664cc9' => 
     array (
       0 => 'C:\\xampp\\newInstall\\htdocs\\practicos\\PrimerEntregaTPE\\templates\\formCharacter.tpl',
-      1 => 1665286125,
+      1 => 1665327840,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:foot.tpl' => 1,
   ),
 ),false)) {
-function content_63423ff3dbac86_87125996 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6342e2e2e98454_79487732 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <form action="<?php echo $_smarty_tpl->tpl_vars['action']->value;?>
@@ -60,7 +60,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     <label>Nucleo varita: </label>
     <input <?php if (!empty($_smarty_tpl->tpl_vars['char']->value)) {?>value="<?php echo $_smarty_tpl->tpl_vars['char']->value->nucleo_varita;?>
 " <?php }?> type="text" name="core">
-    <button type="submit">Agregar cambios</button>
+    <button type="submit">
+    <?php if (!empty($_smarty_tpl->tpl_vars['char']->value)) {?>Agregar cambios <?php } else { ?> Agregar personaje <?php }?>
+    </button>
 </form>
 <?php $_smarty_tpl->_subTemplateRender("file:foot.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }

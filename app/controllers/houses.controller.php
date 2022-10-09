@@ -46,7 +46,7 @@ class HouseController
     {
         if ($this->authHelper->checkLogged()) {
             if ($this->postIsVoid()) {
-                $this->view->displayFormAddHouse();
+                $this->view->displayForm("addHouse");
             } else {
                 $name = $_POST['nameHouse'];
                 $founder = $_POST['founder'];
@@ -88,7 +88,7 @@ class HouseController
         if ($this->authHelper->checkLogged()) {
             if ($this->postIsVoid()) {
                 $house = $this->model->getHouseByID($idHouse);
-                $this->view->displayFormEdit($house);
+                $this->view->displayForm("editHouse/$idHouse",$house);
             } else if (!empty($this->charactersModel->getAllByHouse($idHouse))) {
                 $this->view->displayHouseNotEmpty();
             } else {

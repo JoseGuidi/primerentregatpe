@@ -20,6 +20,8 @@
 
     <label>Nucleo varita: </label>
     <input {if !empty($char)}value="{$char->nucleo_varita}" {/if} type="text" name="core">
-    <button type="submit">Agregar cambios</button>
+    <button type="submit">
+        {if !empty($char)}Agregar cambios {else} Agregar personaje {/if}
+    </button>
 </form>
 {include file="foot.tpl" }

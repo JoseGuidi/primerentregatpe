@@ -30,6 +30,11 @@ class HouseView
         $this->smarty->assign('name', $error);
         $this->smarty->display('UnkownChOrHo.tpl');
     }
+    function displayForm($action,$house = null){
+        $this->smarty->assign("action",$action);
+        $this->smarty->assign("house",$house);
+        $this->smarty->display("formHouse.tpl");
+    }
     function displayFormAddHouse(){
         $this->smarty->display('formAddHouse.tpl');
     }
