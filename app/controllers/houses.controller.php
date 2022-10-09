@@ -20,11 +20,13 @@ class HouseController
     }
     function showAll()
     {
+        session_start();
         $houses = $this->model->getAll();
         $this->view->displayAll($houses);
     }
     function showOneHouse($idHouse)
     {
+        session_start();
         $house = $this->model->getHouseByID($idHouse); // recibo house por id
         if (!empty($house)) {
             $characters = $this->charactersModel->getAllByHouse($idHouse);

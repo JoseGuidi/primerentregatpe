@@ -19,11 +19,13 @@ class CharacterController
     }
     function showAll()
     {
+        session_start();
         $characters = $this->model->getAll();
         $this->view->displayAll($characters);
     }
     function showOne($idCharacter)
     {
+        session_start();
         $character = $this->model->getCharacterByID($idCharacter);
         if (!empty($character)) {
             $house = $this->houseModel->getHouseByID($character->id_casa);

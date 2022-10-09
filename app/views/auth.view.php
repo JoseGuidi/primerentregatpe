@@ -5,10 +5,10 @@ class AuthView{
 
     public function __construct() {
         $this->smarty = new Smarty(); 
-        session_start(); //unica forma que me funciono para que funcione el $smarty.session
     }
 
     function displayLogIn($error = false){
+        session_start();    //en cada funcion que use head.tpl, tengo que usar esto. LAS ABM ya lotienen del AuthHelper
         $this->smarty->assign('error',$error);
         $this->smarty->display('login.tpl');
     }
