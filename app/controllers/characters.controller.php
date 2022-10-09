@@ -15,6 +15,7 @@ class CharacterController
         $this->view = new CharacterView();
         $this->houseModel = new HouseModel();
         $this->authHelper = new AuthHelper();
+        
     }
     function showAll()
     {
@@ -41,14 +42,15 @@ class CharacterController
     }
     function addCharacter()
     {
+        
         if ($this->authHelper->checkLogged()) {
             $houses = $this->houseModel->getAll();
             if ($this->postIsVoid()) {
-                $this->view->displayForm($houses, 'addChar');
+                $this->view->displayForm('addChar',$houses);
             } else {
 
                 if (empty($this->houseModel->getHouseByID($_POST['idHouse']))) {
-                    $this->view->displayForm($houses, 'addChar');
+                    $this->view->displayForm('addChar',$houses);
                 } else {
                     $idHouse = $_POST['idHouse'];
                     $name = $_POST['name'];
@@ -85,14 +87,17 @@ class CharacterController
         }
     }
     function editCharacter($idCharacter)
-    {
+    {   
         if ($this->authHelper->checkLogged()) {
             if ($this->postIsVoid()) {
                 $houses = $this->houseModel->getAll();
                 $character = $this->model->getCharacterByID($idCharacter);
                 $houseOfCharacter = $this->houseModel->getHouseByID($character->id_casa);
-                $this->view->displayFormEdit($houses, $character, $houseOfCharacter);
+                //$this->view->displayFormEdit("editChar/$idCharacter",$houses, $character, $houseOfCharacter);
+                $this->view->displayForm("editChar/$idCharacter",$houses, $character, $houseOfCharacter);
+                
             } else {
+                echo'hola';
                 $idHouse = $_POST['idHouse'];
                 $name = $_POST['name'];
                 $core = $_POST['core'];

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-05 02:17:36
+/* Smarty version 4.2.1, created on 2022-10-09 04:46:00
   from 'C:\xampp\newInstall\htdocs\practicos\PrimerEntregaTPE\templates\housesList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_633ccd20a9b9b7_59417246',
+  'unifunc' => 'content_634235e8b40d22_73106919',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '561e640ebdffe0a7e0d30f71d26589cf2b84f9d7' => 
     array (
       0 => 'C:\\xampp\\newInstall\\htdocs\\practicos\\PrimerEntregaTPE\\templates\\housesList.tpl',
-      1 => 1664929052,
+      1 => 1665280690,
       2 => 'file',
     ),
   ),
@@ -22,11 +22,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:foot.tpl' => 1,
   ),
 ),false)) {
-function content_633ccd20a9b9b7_59417246 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634235e8b40d22_73106919 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="lista">
-<h1>Todos las casas: </h1>
+<h1>Todas las casas: </h1>
 <ul class="list-group">
     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['houses']->value, 'house');

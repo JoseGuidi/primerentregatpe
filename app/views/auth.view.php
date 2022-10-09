@@ -4,7 +4,8 @@ class AuthView{
     private $smarty;
 
     public function __construct() {
-        $this->smarty = new Smarty(); // inicializo Smarty
+        $this->smarty = new Smarty(); 
+        session_start(); //unica forma que me funciono para que funcione el $smarty.session
     }
 
     function displayLogIn($error = false){

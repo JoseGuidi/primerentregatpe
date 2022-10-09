@@ -6,6 +6,7 @@ class HouseView
     function __construct()
     {
         $this->smarty = new Smarty();
+        
     }
     function displayAll($houses)
     {

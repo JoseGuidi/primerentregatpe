@@ -16,6 +16,7 @@ class HouseController
         $this->view = new HouseView();
         $this->charactersModel = new CharacterModel();
         $this->authHelper = new AuthHelper();
+        
     }
     function showAll()
     {

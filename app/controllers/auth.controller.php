@@ -8,6 +8,7 @@ class AuthController{
     {
         $this->model=new UserModel();
         $this->view=new AuthView();
+        
     }
    function showLogin(){
     $this->view->displayLogIn();
@@ -23,7 +24,7 @@ class AuthController{
             $_SESSION['USER_ID'] = $user->id_usuario;
             $_SESSION['USER_NAME'] = $user->nombre_usuario;
             $_SESSION['IS_LOGGED'] = true;
-            
+            header('Location: ' . BASE_URL);
         }else{
             $this->view->displayLogIn(true);
         }
@@ -32,6 +33,6 @@ class AuthController{
     function logoutUser(){
         session_start();
         session_destroy();
-        header('Location' . BASE_URL);
+        header('Location: ' . BASE_URL);
     }
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <base href=" {BASE_URL} ">
+    <base href="{BASE_URL}">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,7 +51,11 @@
                             <li><a class="dropdown-item" href="deleteHouse">Borrar</a></li>
                         </ul>
                     </li>
-            
+                    {if {!empty($smarty.session.IS_LOGGED)}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="logout">Logout</a>
+                        </li>
+                    {/if}
 
                 </ul>
             </div>

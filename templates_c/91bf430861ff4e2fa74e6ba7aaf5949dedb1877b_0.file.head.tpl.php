@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-09 03:34:22
+/* Smarty version 4.2.1, created on 2022-10-09 16:48:20
   from 'C:\xampp\newInstall\htdocs\practicos\PrimerEntregaTPE\templates\head.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_6342251e04f6c6_67990354',
+  'unifunc' => 'content_6342df34227766_55395923',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '91bf430861ff4e2fa74e6ba7aaf5949dedb1877b' => 
     array (
       0 => 'C:\\xampp\\newInstall\\htdocs\\practicos\\PrimerEntregaTPE\\templates\\head.tpl',
-      1 => 1665279148,
+      1 => 1665326806,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6342251e04f6c6_67990354 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6342df34227766_55395923 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <base href=" <?php echo BASE_URL;?>
- ">
+    <base href="<?php echo BASE_URL;?>
+">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,7 +75,14 @@ function content_6342251e04f6c6_67990354 (Smarty_Internal_Template $_smarty_tpl)
                             <li><a class="dropdown-item" href="deleteHouse">Borrar</a></li>
                         </ul>
                     </li>
-            
+                    <?php ob_start();
+echo !empty($_SESSION['IS_LOGGED']);
+$_prefixVariable1 = ob_get_clean();
+if ($_prefixVariable1) {?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="logout">Logout</a>
+                        </li>
+                    <?php }?>
 
                 </ul>
             </div>
