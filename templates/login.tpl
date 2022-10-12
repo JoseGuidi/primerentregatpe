@@ -15,7 +15,7 @@
         <label class="form-label">Contraseña</label>
         <input type="password" class="form-control" name="password" />
       </div>
-      <button class="btnLogIn" type="submit" class="btn btn-outline-primary">Log In</button>
+      <button class="btnLogIn" type="submit" class="btn btn-outline-primary" >Log In</button>
     </form>
     {if $error}
       <div class="alert alert-danger" role="alert">
@@ -24,8 +24,7 @@
     {/if}
   </div>
 {else}
-  <h1> Estas logueado como administrador </h1>
-  
+  <h1 class="logeado"> Estas logueado como administrador </h1>
 {/if}
 
 {include file="foot.tpl"}

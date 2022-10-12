@@ -1,3 +1,8 @@
+
+h1.logeado{
+    text-align: center;
+    font-style: italic;
+}
 div.login{
     text-align: center;
     margin: 0 40%;
@@ -51,4 +56,64 @@ img[src="images/casas.jpg"]{
     margin: auto;
     margin-top: 60px;
     width: 30%;
+}
+.formAddEdit{ 
+    text-align: center;
+    margin: 5% 10%;
+}
+.formAddEdit label{
+    width: 100%;
+}
+.formAddEdit input,.formAddEdit select{
+    width: 60%;
+    margin: 5px 0 20px 0;
+    border-radius: 4px black;
+    box-shadow: 1px 1px 1px black;
+}
+.formAddEdit button,.btnLogIn{
+    font-style: italic;
+    padding: 15px;
+    background-color: rgb(80, 41, 10);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+.btnLogIn{
+    padding: 5px 10px;
+}
+div.details{
+    margin: 5% 30%;
+    padding: 5px;
+    border-radius: 4px;
+}
+label.details,div.infoHouse div label{
+    width: 100%;
+    margin: 5px 0;
+}
+label.details span,div.infoHouse div span{
+    font-weight: 400;
+    font-style: italic;
+    text-transform: capitalize;
+}
+.contenedorHouse{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 7%;
+}
+div.infoHouse{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+div.personajesHouse{
+    width: 30%;
+}
+div.infoHouse div{
+    width: 65%;
+}
+div.infoHouse img{
+    width: 25%;
+    min-width: 100px;
 }

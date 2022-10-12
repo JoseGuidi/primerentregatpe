@@ -1,4 +1,8 @@
 {include file="head.tpl"}
-<h1>Personaje: {$character->nombre}</h1>
-<p>El personaje {$character->nombre}, es un {$character->rol}, pertenece a la casa de <a href="houses/{$house->id}">{$house->nombre_casa}</a> y su nucleo de varita es {$character->nucleo_varita} </p>
+<div class="details">
+    <label class="details"> Personaje: <span class="gol">{$character->nombre}</span></label>
+    <label class="details"> Rol: <span>{$character->rol}</span> </label>
+    <label class="details"> Casa: <span><a href="houses/{$house->id}">{$house->nombre_casa}</a></span> </label>
+    <label class="details"> Nucleo de varita: <span>{$character->nucleo_varita}</span> </label>
+</div>
 {include file="foot.tpl"}

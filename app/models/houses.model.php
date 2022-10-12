@@ -21,16 +21,32 @@ class HouseModel{
         return $query->fetch(PDO::FETCH_OBJ);
     }
     
-    function insertHouse($name,$founder,$colors,$symbol){
-        $query = $this->db->prepare("INSERT INTO casas (nombre_casa,colores,simbolo,fundador) VALUES (?,?,?,?)");
-        $query->execute([$name,$colors,$symbol,$founder]);
+    function insertHouse($name,$founder,$colors,$symbol,$image = null){
+        
+        if($image){
+            $imagePath = $this->uploadImage($image);
+        }else{
+            $imagePath = 'images/houseShields/pordefecto.png';
+        }
+        $query = $this->db->prepare("INSERT INTO casas (nombre_casa,colores,simbolo,fundador,escudo) VALUES (?,?,?,?,?)");
+        $query->execute([$name,$colors,$symbol,$founder,$imagePath]);
+    }
+    function uploadImage($image){
+        $location = 'images/houseShields/'. uniqid() . '.' . strtolower(pathinfo($_FILES['shield']['name'], PATHINFO_EXTENSION)); 
+        move_uploaded_file($image,$location); //se mueve de temporal a donde especifique arriba
+        return $location; // lo devuelve para asi insertar la misma ruta en la bd
     }
     function deleteHouse($idHouse){
         $query = $this->db->prepare("DELETE FROM casas WHERE id = ?");
         $query->execute([$idHouse]);
     }
-    function updateHouse($name,$founder,$colors,$symbol,$idHouse){
-        $query = $this->db->prepare("UPDATE `casas` SET `id`=?,`nombre_casa`= ?,`colores`=?,`simbolo`=?,`fundador`=? WHERE id = ?");
-        $query->execute([$idHouse,$name,$colors,$symbol,$founder,$idHouse]);
+    function updateHouse($name,$founder,$colors,$symbol,$idHouse,$image = null){
+        if($image){
+            $imagePath = $this->uploadImage($image);
+        }else{
+            $imagePath = 'images/houseShields/pordefecto.png';
+        }
+        $query = $this->db->prepare("UPDATE `casas` SET `id`=?,`nombre_casa`= ?,`colores`=?,`simbolo`=?,`fundador`=?, `escudo`=? WHERE id = ?");
+        $query->execute([$idHouse,$name,$colors,$symbol,$founder,$imagePath,$idHouse]);
     }
 }
