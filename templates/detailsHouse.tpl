@@ -13,7 +13,7 @@
     <div class="personajesHouse">
         {if $cond == true}
             <h2> Pertenecen a esta casa los alumnos: </h2>
-            <ul class="list-group">
+            <ul class="list-group ">
                 {foreach from=$characters item=$character}
                     <li class="list-group-item list-group-item-action">
                         <a href="characters/{$character->id}">{$character->nombre}</a>

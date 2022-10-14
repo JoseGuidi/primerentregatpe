@@ -1,14 +1,27 @@
-
+body{
+    background-image: url('../images/fondo.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+nav{
+    border-bottom: 4px solid rgb(94, 44, 8);
+}
 h1.logeado{
+    color: rgb(211, 211, 211);
     text-align: center;
     font-style: italic;
 }
 div.login{
+    background-color: rgba(0, 0, 0, 0.562);
     text-align: center;
     margin: 0 40%;
-    border: 2px solid rgb(61, 61, 117);
-    border-top:none ;
-    padding: 10px;
+    border: 3px solid black;
+    border-top: none;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 10px 20px;
 }
 div.login input{
     margin-bottom: 10px;
@@ -21,8 +34,10 @@ div.login input{
     background-color: rgb(4, 4, 53);
     color:rgb(255, 255, 255);
 }
-img[src="images/login.jpg"]{
-    border-bottom: 2px solid rgb(61, 61, 117);
+img[src="images/login.png"]{
+    border-bottom: 3px solid white;
+    padding-top: 25px;
+    max-width: 500px;
     display: block;
     margin: auto;
 }
@@ -40,13 +55,14 @@ div.lista{
     flex-wrap: wrap;
     justify-content: space-around;
 }
-div.lista h1{
+div.lista h1,h2{
+    margin-top: 25px;
+    color: rgb(255, 255, 255);
     width: 100%;
     text-align: center;
 }
 div.lista img{
-    width: 25%;
-    
+    width: 25%;   
 }
 div.lista ul{
     width: 40%;
@@ -77,6 +93,11 @@ img[src="images/casas.jpg"]{
     color: rgb(255, 255, 255);
     border-radius: 10px;
 }
+.formAddEdit input{
+    background-color: gainsboro;
+    padding: 2px;
+    border: 1px solid rgb(94, 44, 8);
+}
 .btnLogIn{
     padding: 5px 10px;
 }
@@ -86,8 +107,12 @@ div.details{
     border-radius: 4px;
 }
 label.details,div.infoHouse div label{
+    text-align: center;
     width: 100%;
     margin: 5px 0;
+}
+div.infoHouse div label{
+    text-align: left;
 }
 label.details span,div.infoHouse div span{
     font-weight: 400;
@@ -116,4 +141,8 @@ div.infoHouse div{
 div.infoHouse img{
     width: 25%;
     min-width: 100px;
+}
+label{
+    font-size: 20px;
+    color: rgb(255, 255, 255);
 }

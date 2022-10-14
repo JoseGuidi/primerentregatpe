@@ -1,6 +1,6 @@
 {include file="head.tpl"}
 
-<img src="images/login.jpg" alt="Logo WikiPotter">
+<img src="images/login.png" alt="Logo WikiPotter">
 {if empty($smarty.session.IS_LOGGED)}
   <div class="login">
     <form method="post" action="validate">
