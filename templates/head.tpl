@@ -27,10 +27,10 @@
                             <a class="nav-link active" aria-current="page" href="home">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="characters">Personajes</a>
+                            <a class="nav-link" href="characterList">Personajes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="houses">Casas</a>
+                            <a class="nav-link" href="houseList">Casas</a>
                         </li>
                         {if {!empty($smarty.session.IS_LOGGED)}}
                             <li class="nav-item dropdown">

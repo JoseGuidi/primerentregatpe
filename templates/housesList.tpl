@@ -4,7 +4,7 @@
 <ul class="list-group">
     {foreach from=$houses item=$house}
         <li class="list-group-item list-group-item-action">
-            <a class="anchorLista" href="houses/{$house->id}">{$house->nombre_casa}</a>
+            <a class="anchorLista" href="house/{$house->id}">{$house->nombre_casa}</a>
         </li>
     {/foreach}
 

@@ -5,7 +5,7 @@
     <ul class="list-group">
         {foreach from=$characters item=$character}
             <li class="list-group-item list-group-item-action">
-                <a  class="anchorLista" href="characters/{$character->id}">{$character->nombre}</a>
+                <a  class="anchorLista" href="character/{$character->id}">{$character->nombre}</a>
             </li>
         {/foreach}
     </ul>

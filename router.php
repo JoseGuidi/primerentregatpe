@@ -21,46 +21,40 @@ switch ($params[0]) {
     case 'logout':
         $authController->logoutUser();
         break;
-    case 'characters':
-        if (empty($params[1]) && (!isset($params[1]))) {
-            $characterController->showAll();
-        } else {
-            $characterController->showOne($params[1]);
-        }
+    case 'characterList':
+        $characterController->showAll();
         break;
-    case 'houses':
-        if (empty($params[1]) && (!isset($params[1]))) {
-            $houseController->showAll();
-        } else {
-            $houseController->showOneHouse($params[1]);
-        }
+    case 'character':                                       // Para mostrar personajes y casa habia hecho un if el cual comprobaba si 
+        $characterController->showOne($params[1]);          // estaba vacio params[1] segun eso mostraba una o todas. No se si estaba bien un if en el router.
+        break;                                              // Es la misma idea de delete y edit
+    case 'houseList':
+        $houseController->showAll();
         break;
-
+    case 'house':
+        $houseController->showOneHouse($params[1]);
+        break;
     case 'addChar':
         $characterController->addCharacter();
         break;
     case 'addHouse':
         $houseController->addHouse();
         break;
-
     case 'deleteChar':
         if (empty($params[1]) && (!isset($params[1]))) {
             $characterController->showDeleteButtons();
-        }else $characterController->deleteCharacter($params[1]);
+        } else $characterController->deleteCharacter($params[1]);
         break;
     case 'deleteHouse':
         if (empty($params[1]) && (!isset($params[1]))) {
             $houseController->showDeleteButtons();
-        }else $houseController->deleteHouse($params[1]);
+        } else $houseController->deleteHouse($params[1]);
         break;
-
-    case 'editChar':        
+    case 'editChar':
         if (empty($params[1]) && (!isset($params[1]))) {
             $characterController->showEditButtons();
-        }else $characterController->editCharacter($params[1]);
-        break;       
-
-   case 'editHouse':
+        } else $characterController->editCharacter($params[1]);
+        break;
+    case 'editHouse':
         if (empty($params[1]) && (!isset($params[1]))) {
             $houseController->showEditButtons();
         } else $houseController->editHouse($params[1]);
