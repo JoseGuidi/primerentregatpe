@@ -19,19 +19,18 @@ class HouseController
     }
     function showAll()
     {
-        session_start();
         $houses = $this->model->getAll();
-        $this->view->displayAll($houses);
+        $this->view->displayAll($houses, $this->authHelper->isLogged());
     }
     function showOneHouse($idHouse)
     {
-        session_start();
+        $isLogged = $this->authHelper->isLogged();
         $house = $this->model->getHouseByID($idHouse); // recibo house por id
         if (!empty($house)) {
             $characters = $this->charactersModel->getAllByHouse($idHouse);
-            $this->view->displayOne($house, $characters);
+            $this->view->displayOne($house, $characters, $isLogged);
         } else {
-            $this->view->displayUnkownHouse($idHouse);
+            $this->view->displayUnkownHouse($idHouse, $isLogged);
         }
     }
     function postIsVoid()
@@ -41,12 +40,13 @@ class HouseController
             (!isset($_POST['colors'])) && (empty($_POST['colors'])) ||
             (!isset($_POST['symbol'])) && (empty($_POST['symbol'])));
     }
-    function verifyImage(){
+    function verifyImage()
+    {
         return $_FILES['shield']['type'] == "image/jpg" || $_FILES['shield']['type'] == "image/jpeg" || $_FILES['shield']['type'] == "image/png";
     }
     function addHouse()
     {
-        if ($this->authHelper->checkLogged()) {
+        if ($this->authHelper->isLogged()) {
             if ($this->postIsVoid()) {
                 $this->view->displayForm("addHouse");
             } else {
@@ -54,45 +54,53 @@ class HouseController
                 $founder = $_POST['founder'];
                 $colors = $_POST['colors'];
                 $symbol = $_POST['symbol'];
-                
+
                 if ($this->verifyImage()) {
-                    $this->model->insertHouse($name, $founder, $colors, $symbol,$_FILES['shield']['tmp_name']);                 
-                }else {
-                    $this->model->insertHouse($name, $founder, $colors, $symbol);                    
+                    $this->model->insertHouse($name, $founder, $colors, $symbol, $_FILES['shield']['tmp_name']);
+                } else {
+                    $this->model->insertHouse($name, $founder, $colors, $symbol);
                 }
-                header("Location: " . BASE_URL);
+                header("Location: houseList");
             }
+        } else {
+            header("Location:" . BASE_URL);
         }
     }
     function showDeleteButtons()
     {
-        if ($this->authHelper->checkLogged()) {
+        if ($this->authHelper->isLogged()) {
             $houses = $this->model->getAll();
             $this->view->displayDeleteButtons($houses);
+        } else {
+            header("Location:" . BASE_URL);
         }
     }
     function deleteHouse($idHouse)
     {
-        if ($this->authHelper->checkLogged()) {
+        if ($this->authHelper->isLogged()) {
             if (!empty($this->charactersModel->getAllByHouse($idHouse))) {
                 $this->view->displayHouseNotEmpty();
             } else {
                 $this->model->deleteHouse($idHouse);
                 header("Location: " . BASE_URL);
             }
+        } else {
+            header("Location: " . BASE_URL);
         }
     }
 
     function showEditButtons()
     {
-        if ($this->authHelper->checkLogged()) {
+        if ($this->authHelper->isLogged()) {
             $houses = $this->model->getAll();
             $this->view->displayEditButtons($houses);
+        } else {
+            header("Location: " . BASE_URL);
         }
     }
     function editHouse($idHouse)
     {
-        if ($this->authHelper->checkLogged()) {
+        if ($this->authHelper->isLogged()) {
             if ($this->postIsVoid()) {
                 $house = $this->model->getHouseByID($idHouse);
                 $this->view->displayForm("editHouse/$idHouse", $house);
@@ -103,13 +111,15 @@ class HouseController
                 $founder = $_POST['founder'];
                 $colors = $_POST['colors'];
                 $symbol = $_POST['symbol'];
-                if($this->verifyImage()){
-                    $this->model->updateHouse($name, $founder, $colors, $symbol,$idHouse,$_FILES['shield']['tmp_name']);
+                if ($this->verifyImage()) {
+                    $this->model->updateHouse($name, $founder, $colors, $symbol, $idHouse, $_FILES['shield']['tmp_name']);
                 } else {
                     $this->model->updateHouse($name, $founder, $colors, $symbol, $idHouse);
                 }
-                header("Location: " . BASE_URL);                
+                header("Location: " . BASE_URL);
             }
+        } else {
+            header("Location: " . BASE_URL);
         }
     }
 }

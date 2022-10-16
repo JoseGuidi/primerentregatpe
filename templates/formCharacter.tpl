@@ -9,7 +9,7 @@
         <label>Casa: </label>
         <select name="idHouse">
             {if !empty($char)}
-                <option selected hidden>{$houseOfChar->nombre_casa}</option>
+                <option selected value="{$houseOfChar->id}" hidden>{$houseOfChar->nombre_casa}</option>
             {/if}
             {foreach from=$houses item=$house}
                 <option value="{$house->id}">{$house->nombre_casa}</option>

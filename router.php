@@ -13,22 +13,22 @@ $authController = new authController();
 $houseController = new HouseController();
 switch ($params[0]) {
     case 'home':
-        $authController->showLogin();
+        $authController->showLogin();   
         break;
     case 'validate':
-        $authController->validatePassword();
+        $authController->validatePassword();    
         break;
     case 'logout':
-        $authController->logoutUser();
+        $authController->logoutUser();      
         break;
     case 'characterList':
-        $characterController->showAll();
+        $characterController->showAll();    
         break;
     case 'character':                                       // Para mostrar personajes y casa habia hecho un if el cual comprobaba si 
         $characterController->showOne($params[1]);          // estaba vacio params[1] segun eso mostraba una o todas. No se si estaba bien un if en el router.
-        break;                                              // Es la misma idea de delete y edit
+        break;                                              // Es la misma idea de delete y edit (Tendria 2 case por accion, una que muestre botones y otra que elimine)
     case 'houseList':
-        $houseController->showAll();
+        $houseController->showAll(); 
         break;
     case 'house':
         $houseController->showOneHouse($params[1]);
@@ -37,15 +37,15 @@ switch ($params[0]) {
         $characterController->addCharacter();
         break;
     case 'addHouse':
-        $houseController->addHouse();
+        $houseController->addHouse(); 
         break;
     case 'deleteChar':
-        if (empty($params[1]) && (!isset($params[1]))) {
+        if (empty($params[1]) && (!isset($params[1]))) { 
             $characterController->showDeleteButtons();
         } else $characterController->deleteCharacter($params[1]);
         break;
     case 'deleteHouse':
-        if (empty($params[1]) && (!isset($params[1]))) {
+        if (empty($params[1]) && (!isset($params[1]))) { 
             $houseController->showDeleteButtons();
         } else $houseController->deleteHouse($params[1]);
         break;
@@ -56,7 +56,7 @@ switch ($params[0]) {
         break;
     case 'editHouse':
         if (empty($params[1]) && (!isset($params[1]))) {
-            $houseController->showEditButtons();
+            $houseController->showEditButtons();                
         } else $houseController->editHouse($params[1]);
         break;
     default:

@@ -19,19 +19,18 @@ class CharacterController
     }
     function showAll()
     {
-        session_start();
         $characters = $this->model->getAll();
-        $this->view->displayAll($characters);
+        $this->view->displayAll($characters,$this->authHelper->isLogged());
     }
     function showOne($idCharacter)
     {
-        session_start();
+        $isLogged = $this->authHelper->isLogged();
         $character = $this->model->getCharacterByID($idCharacter);
         if (!empty($character)) {
             $house = $this->houseModel->getHouseByID($character->id_casa);
-            $this->view->displayOne($character, $house);
+            $this->view->displayOne($character, $house,$isLogged);
         } else {
-            $this->view->displayUnkownCharacter($idCharacter);
+            $this->view->displayUnkownCharacter($idCharacter,$isLogged);
         }
     }
 
@@ -45,7 +44,7 @@ class CharacterController
     function addCharacter()
     {
         
-        if ($this->authHelper->checkLogged()) {
+        if ($this->authHelper->isLogged()) {
             $houses = $this->houseModel->getAll();
             if ($this->postIsVoid()) {
                 $this->view->displayForm('addChar',$houses);
@@ -59,43 +58,50 @@ class CharacterController
                     $core = $_POST['core'];
                     $role = $_POST['role'];
                     $this->model->insertCharacter($name, $idHouse, $role, $core);
-                    header("Location:" . BASE_URL);
+                    header("Location: characterList" );
                 }
             }
+        }else {
+            header("Location:" . BASE_URL );
         }
     }
 
     function showDeleteButtons()
     {
-        if ($this->authHelper->checkLogged()) {
+        if ($this->authHelper->isLogged()) {
             $characters = $this->model->getAll();
             $this->view->displayDeleteButtons($characters);
+        }else {
+            header("Location:" . BASE_URL );
         }
     }
 
     function deleteCharacter($idCharacter = NULL)
     {
-        if ($this->authHelper->checkLogged()) {
+        if ($this->authHelper->isLogged()) {
             $this->model->deleteCharacter($idCharacter);
-            header("Location: " . BASE_URL);
+            header("Location:" . BASE_URL );
+        }else {
+            header("Location:" . BASE_URL );
         }
     }
 
     function showEditButtons()
     {
-        if ($this->authHelper->checkLogged()) {
+        if ($this->authHelper->isLogged()) {
             $characters = $this->model->getAll();
             $this->view->displayEditButtons($characters);
+        }else {
+            header("Location:" . BASE_URL );
         }
     }
     function editCharacter($idCharacter)
     {   
-        if ($this->authHelper->checkLogged()) {
+        if ($this->authHelper->isLogged()) {
             if ($this->postIsVoid()) {
                 $houses = $this->houseModel->getAll();
                 $character = $this->model->getCharacterByID($idCharacter);
                 $houseOfCharacter = $this->houseModel->getHouseByID($character->id_casa);
-                //$this->view->displayFormEdit("editChar/$idCharacter",$houses, $character, $houseOfCharacter);
                 $this->view->displayForm("editChar/$idCharacter",$houses, $character, $houseOfCharacter);
                 
             } else {
@@ -105,8 +111,10 @@ class CharacterController
                 $core = $_POST['core'];
                 $role = $_POST['role'];
                 $this->model->updateCharacter($name, $idHouse, $role, $core, $idCharacter);
-                header("Location:" . BASE_URL);
+                header("Location: " . BASE_URL );
             }
+        }else {
+            header("Location:" . BASE_URL );
         }
     }
 }

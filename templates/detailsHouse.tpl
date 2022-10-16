@@ -11,7 +11,7 @@
 
     </div>
     <div class="personajesHouse">
-        {if $cond == true}
+        {if $houseEmpty == true}
             <h2> Pertenecen a esta casa los alumnos: </h2>
             <ul class="list-group ">
                 {foreach from=$characters item=$character}

@@ -7,8 +7,9 @@ class AuthView{
         $this->smarty = new Smarty(); 
     }
 
-    function displayLogIn($error = false){
-        session_start();    //en cada funcion que use head.tpl, tengo que usar esto. LAS ABM ya lotienen del AuthHelper
+    function displayLogIn($isLogged,$error = false){
+           //en cada funcion que use head.tpl, tengo que usar esto. LAS ABM ya lotienen del AuthHelper
+        $this->smarty->assign('isLogged',$isLogged);
         $this->smarty->assign('error',$error);
         $this->smarty->display('login.tpl');
     }
