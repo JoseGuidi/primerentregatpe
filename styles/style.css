@@ -105,6 +105,8 @@ div.details{
     margin: 5% 30%;
     padding: 5px;
     border-radius: 4px;
+    box-shadow: 5px 5px 20px rgb(10, 10, 10);
+    background-color: rgba(0, 0, 0, 0.438);
 }
 label.details,div.infoHouse div label{
     text-align: center;
@@ -130,12 +132,13 @@ div.infoHouse{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 div.personajesHouse{
     width: 30%;
 }
 div.infoHouse div{
+    padding-left: 40px;
     width: 65%;
 }
 div.infoHouse img{
@@ -145,4 +148,13 @@ div.infoHouse img{
 label{
     font-size: 20px;
     color: rgb(255, 255, 255);
+}
+.personajesHouse h2,.infoHouse img,.infoHouse div{
+    box-shadow: 5px 5px 20px rgb(10, 10, 10);
+    background-color: rgba(0, 0, 0, 0.438);
+    padding: 10px;
+    margin-bottom: 30px;
+}
+.personajesHouse ul,.lista img{
+    box-shadow: 5px 5px 60px rgb(10, 10, 10);
 }

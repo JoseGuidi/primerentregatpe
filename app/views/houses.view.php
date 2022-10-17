@@ -46,6 +46,7 @@ class HouseView
         $this->smarty->display('houseDeleteButtons.tpl');
     }
     function displayHouseNotEmpty(){
+        $this->smarty->assign('isLogged',true);
         $this->smarty->display('displayHouseNotEmpty.tpl');
     }
 

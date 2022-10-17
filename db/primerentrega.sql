@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2022 a las 00:08:27
+-- Tiempo de generación: 17-10-2022 a las 05:05:57
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -66,7 +66,10 @@ CREATE TABLE `personajes` (
 
 INSERT INTO `personajes` (`id`, `id_casa`, `nombre`, `rol`, `nucleo_varita`) VALUES
 (7, 12, 'Hermione Granger', 'Alumna', 'fibra de corazón de dragón'),
-(8, 12, 'Harry Potter', 'alumno', 'pluma de fenix');
+(8, 12, 'Harry Potter', 'alumno', 'pluma de fenix'),
+(19, 14, 'Lord Voldemort', 'Mago', 'Pluma de fénix'),
+(20, 14, 'Bellatrix Lestrange', 'Maga', 'Nervio de dragon'),
+(21, 11, 'Cedric Diggory', 'Alumno', 'Pelo de unicornio');
 
 -- --------------------------------------------------------
 
@@ -118,13 +121,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `casas`
 --
 ALTER TABLE `casas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `personajes`
 --
 ALTER TABLE `personajes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
